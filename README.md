@@ -1,57 +1,79 @@
-# REMEDA Stage319
+# Stage320: Proof URL Viewer (REMEDA)
 
-AI vulnerabilities → Verification → Proof URL
+Convert AI-detected vulnerabilities into **externally verifiable proof URLs**.
 
-REMEDA converts AI-detected vulnerabilities into verifiable, reproducible proof.
+## Overview
 
-## What you can do
+Stage320 demonstrates how an AI-generated vulnerability claim can be transformed into a:
 
-- Generate API keys
-- Submit AI vulnerability results
-- Get verification decisions
-- Generate proof URLs
-- Measure trust score
+- Public Proof URL
+- Human-readable verification page
+- Machine-readable JSON proof
+- Tamper-detectable artifact (SHA256)
 
-## Live API
+## Live Demo
 
-https://stage302.onrender.com/api/health
+👉 https://mokkunsuzuki-code.github.io/stage320/
 
-## Example
+Example Proof:
+
+👉 https://mokkunsuzuki-code.github.io/stage320/proof/demo-ai-vulnerability.html
+
+## What This Proves
+
+AI outputs are normally:
+
+
+AI → result → not trusted
+
+
+REMEDA converts them into:
+
+
+AI → verification → proof URL → externally verifiable
+
+
+## Proof Structure
+
+Each proof includes:
+
+- Decision (ACCEPT / REJECT)
+- Trust Score
+- Integrity / Execution / Identity / Time
+- Approved by (identity)
+- Issued timestamp
+- SHA256 (tamper detection)
+- JSON proof (machine-readable)
+- Verification method (curl)
+
+## Example Verification
 
 ```bash
-curl -X POST https://stage302.onrender.com/api/keys
+curl https://mokkunsuzuki-code.github.io/stage320/proofs/demo-ai-vulnerability.json
+Why This Matters
 
-curl -X POST https://stage302.onrender.com/api/verify \
-  -H "x-api-key: YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"ai_result":"SQL Injection detected","confidence":0.92}'
-Flow
+Unverified AI outputs cannot be used in:
 
-AI vulnerability result
-→ API key
-→ Verification
-→ Proof JSON
-→ Proof URL
+Security reports
+Audits
+Contracts
 
-Why this matters
+REMEDA converts AI results into provable evidence.
 
-AI outputs are not trustworthy by default.
-
-REMEDA makes them:
-
-Verifiable
-Reproducible
-Measurable
 Architecture
-
-Public Layer (this repo)
-→ Core API (private)
-→ Proof URL
-
-Stage
-
-319 Public
-
+AI Result
+↓
+Verification
+↓
+Proof JSON
+↓
+Proof URL (HTML)
+↓
+Public / Verifiable
+Next
+Stage321: Signature (GPG / Sigstore)
+Stage322: Proof Chain / History
+Stage323: API-based Proof Issuance
 License
 
-MIT License (c) 2025 Motohiro Suzuki
+MIT License
