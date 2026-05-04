@@ -1,0 +1,16 @@
+# secrets
+.env
+*.key
+*.pem
+
+# local core
+.venv/
+__pycache__/
+app.py
+templates/
+static/
+proofs/
+
+# allow public release
+!public/
+!public/**
